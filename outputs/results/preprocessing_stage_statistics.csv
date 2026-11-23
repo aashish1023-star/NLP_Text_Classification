@@ -1,0 +1,5 @@
+Stage,Avg tokens per review,Vocabulary size (unique words)
+After tokenization,233.6,51135
+After stopword removal,120.8,50976
+After stemming,120.8,34597
+After lemmatization,120.8,45576

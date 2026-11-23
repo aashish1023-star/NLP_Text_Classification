@@ -1,0 +1,355 @@
+{
+  "dataset": {
+    "name": "IMDB Movie Reviews (50K)",
+    "source": "https://raw.githubusercontent.com/Ankit152/IMDB-sentiment-analysis/master/IMDB-Dataset.csv",
+    "file": "data\\IMDB_Dataset.csv",
+    "text_column": "review",
+    "label_column": "sentiment",
+    "original_rows": 50000,
+    "original_class_counts": {
+      "positive": 25000,
+      "negative": 25000
+    },
+    "duplicates": 418,
+    "rows_after_dedup": 49582,
+    "working_rows": 10000,
+    "working_class_counts": {
+      "positive": 5019,
+      "negative": 4981
+    },
+    "train_rows": 8000,
+    "test_rows": 2000,
+    "reviews_with_html_pct": 58.4,
+    "median_words": 173.0
+  },
+  "preprocessing_example": {
+    "excerpt_original": "when people say things to Boyer like, \"You're Spanish, aren't you?\"<br /><br />Still, the movie's not at all bad, just slow-moving.",
+    "excerpt_lowercase": "when people say things to boyer like, \"you're spanish, aren't you?\"<br /><br />still, the movie's not at all bad, just slow-moving.",
+    "excerpt_no_html": "when people say things to boyer like, \"you're spanish, aren't you?\" still, the movie's not at all bad, just slow-moving.",
+    "excerpt_no_url": "when people say things to boyer like, \"you're spanish, aren't you?\" still, the movie's not at all bad, just slow-moving.",
+    "excerpt_no_special": "when people say things to boyer like you re spanish are not you still the movie s not at all bad just slow moving",
+    "excerpt_whitespace": "when people say things to boyer like you re spanish are not you still the movie s not at all bad just slow moving",
+    "excerpt_tokens": [
+      "when",
+      "people",
+      "say",
+      "things",
+      "to",
+      "boyer",
+      "like",
+      "you",
+      "re",
+      "spanish",
+      "are",
+      "not",
+      "you",
+      "still",
+      "the",
+      "movie",
+      "s",
+      "not",
+      "at",
+      "all",
+      "bad",
+      "just",
+      "slow",
+      "moving"
+    ],
+    "excerpt_no_stopwords": [
+      "people",
+      "say",
+      "things",
+      "boyer",
+      "like",
+      "spanish",
+      "not",
+      "still",
+      "movie",
+      "not",
+      "bad",
+      "slow",
+      "moving"
+    ],
+    "excerpt_stems": [
+      "peopl",
+      "say",
+      "thing",
+      "boyer",
+      "like",
+      "spanish",
+      "not",
+      "still",
+      "movi",
+      "not",
+      "bad",
+      "slow",
+      "move"
+    ],
+    "excerpt_lemmas": [
+      "people",
+      "say",
+      "thing",
+      "boyer",
+      "like",
+      "spanish",
+      "not",
+      "still",
+      "movie",
+      "not",
+      "bad",
+      "slow",
+      "moving"
+    ],
+    "stem_vs_lemma_words": [
+      {
+        "word": "movie",
+        "stem": "movi",
+        "lemma": "movie",
+        "count": 17750
+      },
+      {
+        "word": "story",
+        "stem": "stori",
+        "lemma": "story",
+        "count": 4684
+      },
+      {
+        "word": "really",
+        "stem": "realli",
+        "lemma": "really",
+        "count": 4523
+      },
+      {
+        "word": "people",
+        "stem": "peopl",
+        "lemma": "people",
+        "count": 3597
+      },
+      {
+        "word": "movies",
+        "stem": "movi",
+        "lemma": "movie",
+        "count": 3116
+      },
+      {
+        "word": "characters",
+        "stem": "charact",
+        "lemma": "character",
+        "count": 2883
+      }
+    ],
+    "stopword_count": 198,
+    "negations_kept": [
+      "never",
+      "no",
+      "nor",
+      "not"
+    ]
+  },
+  "stage_statistics": [
+    {
+      "Stage": "After tokenization",
+      "Avg tokens per review": 233.6,
+      "Vocabulary size (unique words)": 51135
+    },
+    {
+      "Stage": "After stopword removal",
+      "Avg tokens per review": 120.8,
+      "Vocabulary size (unique words)": 50976
+    },
+    {
+      "Stage": "After stemming",
+      "Avg tokens per review": 120.8,
+      "Vocabulary size (unique words)": 34597
+    },
+    {
+      "Stage": "After lemmatization",
+      "Avg tokens per review": 120.8,
+      "Vocabulary size (unique words)": 45576
+    }
+  ],
+  "features": {
+    "bow_vocabulary": 5000,
+    "tfidf_features": 20000,
+    "tfidf_ngram_range": [
+      1,
+      2
+    ],
+    "tiny_bow_docs": [
+      "add little gem list holiday regular sweet funny endearing",
+      "not seen terrible pure trash saw year ago still screwed",
+      "mesmerizing film certainly keep attention ben daniel fascinating courageous watch"
+    ],
+    "tiny_bow_table": {
+      "index": [
+        "doc 1",
+        "doc 2",
+        "doc 3"
+      ],
+      "columns": [
+        "add",
+        "ago",
+        "attention",
+        "ben",
+        "certainly",
+        "courageous",
+        "daniel",
+        "endearing",
+        "fascinating",
+        "film",
+        "funny",
+        "gem",
+        "holiday",
+        "keep",
+        "list",
+        "little",
+        "mesmerizing",
+        "not",
+        "pure",
+        "regular",
+        "saw",
+        "screwed",
+        "seen",
+        "still",
+        "sweet",
+        "terrible",
+        "trash",
+        "watch",
+        "year"
+      ],
+      "data": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      ]
+    },
+    "top_bigrams": {
+      "movie not": 854,
+      "not even": 760,
+      "could not": 654,
+      "film not": 559,
+      "not know": 539
+    },
+    "negation_bigrams": {
+      "movie not": 854,
+      "not even": 760,
+      "could not": 654,
+      "film not": 559,
+      "not know": 539
+    }
+  },
+  "results": [
+    {
+      "Model": "Logistic Regression",
+      "Accuracy": 0.876,
+      "Precision": 0.8763,
+      "Recall": 0.8759,
+      "F1-score": 0.876
+    },
+    {
+      "Model": "SVM (LinearSVC)",
+      "Accuracy": 0.8765,
+      "Precision": 0.8765,
+      "Recall": 0.8765,
+      "F1-score": 0.8765
+    },
+    {
+      "Model": "Multinomial Naive Bayes",
+      "Accuracy": 0.8615,
+      "Precision": 0.8618,
+      "Recall": 0.8616,
+      "F1-score": 0.8615
+    }
+  ],
+  "best_model": "SVM (LinearSVC)"
+}
